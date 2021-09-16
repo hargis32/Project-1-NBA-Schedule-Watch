@@ -1,0 +1,18 @@
+
+* {
+margin: 0;
+padding: 0;
+border: 0;
+box-sizing: border-box;
+}
+
+#container {
+  min-height: 100vh;
+  display: flex;
+}
+
+.left {
+  width: 50vw;
+  background-color: red;
+}
+
