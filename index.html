@@ -1,5 +1,4 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html>
     <head>
       <!--Import Google Icon Font-->
@@ -26,13 +25,10 @@
                         </a>
                         <ul class="right hide-on-med-and-down">
                             <li>
-                                <a href="#find">Find Games</a>
+                                <a href="#findgames">Find Games</a>
                             </li>
                             <li>
-                                <a href="#search">Search Food and Drinks</a>
-                            </li>
-                            <li>
-                                <a href="#radius">Search Radius</a>
+                                <a href="#searchform">Search Food and Drinks</a>
                             </li>
                         </ul>
                     </div>
@@ -41,16 +37,12 @@
         </div>
         <ul class="sidenav" id="mobile-nav">
             <li>
-                <a href="#find">Find Games</a>
+                <a href="#findgames">Find Games</a>
             </li>
             <li>
-                <a href="#search">Search Food and Drinks</a>
-            </li>
-            <li>
-                <a href="#radius">Search Radius</a>
+                <a href="#searchform">Search Food and Drinks</a>
             </li>
         </ul>
-<<<<<<< Updated upstream
 
         <!--Section for slider-->
         <section class="slider">
@@ -89,7 +81,7 @@
         </section>
 
     <!-- This section is for the find games search bar-->
-    <section id="find" class="section section-search blue darken-1 white-text center scrollspy">
+    <section id="findgames" class="section section-search blue darken-1 white-text center scrollspy">
         <div class="container">
             <div class="row">
                 <div class="col s12">
@@ -112,13 +104,19 @@
     </section>
 
     <!-- This section is for the search food and drinks-->
-    <section id="search" class="section section-search red darken-1 white-text center scrollspy">
+    <section id="searchform" class="section section-search red darken-1 white-text center scrollspy">
         <div class="container">
             <div class="row">
                 <div class="col s12">
                     <h2>Search Food and Drinks</h2>
-                    <div class="input-field">
-                        <input type="text" class="white grey-text" placeholder= "Please Input Your Zipcode">
+                    <div class="col s12"></div>
+                        <div class="input-field">
+                            <input type="text" id="location-input" class="white grey-text" placeholder= "Please Input Your City or Zipcode">
+                            <div class="input-field">
+                            <input type="text" id="radius-input" class="white grey-text" placeholder= "Please Select Mileage Radius">
+                            </div>
+                            <button type="submit" class="btn">Search button</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,19 +131,6 @@
         </div>
     </section>
 
-    <!-- This section is for the search by radius closest to you-->
-    <section id="radius" class="section section-search green darken-1 white-text center scrollspy">
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <h2>Search By Radius Closest To You</h2>
-                    <div class="input-field">
-                        <input type="text" class="white grey-text" placeholder= "Input Mileage Radius You are Looking Within">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="section section gif teal darken-2 center">
         <div class="row">
@@ -154,6 +139,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- Footer Section-->
 
@@ -186,7 +173,7 @@
     M.ScrollSpy.init(scrollspy, {});
        
      </script>
-
-      
+    </body>
 
   </html>
+  
