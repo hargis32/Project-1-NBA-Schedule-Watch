@@ -61,3 +61,32 @@ var displayBars = function () {
 
 searchformEl.addEventListener("submit", handleLocationFormSubmit);
 
+
+
+    let dates = [];
+    // saves date choice to local storage
+    const addDate = (ev) =>{
+
+        // stops form from automaticlly submitting
+        ev.preventDefault(); 
+        let date = {
+            id: Date.now(),
+            date: document.getElementById('input-field')
+        }
+        // clears form for next entry
+        
+      
+
+        //displays that date has been added 
+        console.warn('added', (dates) );
+        let pre = document/querySelector('#msg pre');
+        pre.textContent = '\n' + JSON/stringify(dates, '\t', 2);
+
+        // saves to local storage
+        localStorage.setItem("dateList" , JSON.stringify(dates) );
+        }
+        
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('btn').addEventListener('click', addDate);
+             console.log('DOM fully loaded and parsed');
+        });
