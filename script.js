@@ -36,7 +36,7 @@ var getLocalBar = function (locationInputVal, radiusInputVal) {
             } else {
                 alert("Error: " + response.statusText);
             }
-        })
+        });
 
 };
 
@@ -74,7 +74,8 @@ searchformEl.addEventListener("submit", handleLocationFormSubmit);
             date: document.getElementById('input-field')
         }
         // clears form for next entry
-        
+        ates.push(date);
+        document.forms[0].reset();
       
 
         //displays that date has been added 
