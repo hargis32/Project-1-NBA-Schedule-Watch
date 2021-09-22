@@ -1,63 +1,64 @@
-
-
-var key = "OdxfzW97A9GgejJGoakDEF76rmEVTHu2"
+var key = "OdxfzW97A9GgejJGoakDEF76rmEVTHu2";
+var searchFoodEl = document.querySelector('#search-food');
+var barResultsEl = document.querySelector('#bar-results');
+var locationInputEl = document.querySelector('#location-input');
+var radiusInputEl = document.querySelector('#radius-input');
 
 function handleLocationFormSubmit(event) {
     event.preventDefault();
 
     // link id to zipcode/address input
-    var locationInputVal = document.querySelector('#location-input').value;
+    var location = locationInputEl.value.trim();
     // link id to #-mile-radius input, if we so choose....
-    var radiusInputVal = document.querySelector('#radius-input').value;
-    if (location) {
-        getLocalBar(location);
-    }
-    else if (!locationInputVal) {
-        console.error('Not a valid address. Please try again.');
-    }
-    else (!radiusInputVal) {
-        console.error('Not a valid radius. Please enter number');
-    }
-        return;
+    var radius = radiusInputEl.value.trim();
+   
+        getLocalBar(location, radius);
     };
 
-var getLocalBar = function (locationInputVal, radiusInputVal) {
+var getLocalBar = function (location, radius) {
     // need to double check endpoints and paramaters. 581301 refers to code for "Bars" as default restaurant type 
-    var apiURL = "http://www.mapquestapi.com/search/v2/radius?origin=" + locationInputVal +"&radius=" + radiusInputVal + "maxMatches=6&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|581301&outFormat=json&key=" + key;
+    var apiURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + location +"&radius=" + radius + "&maxMatches=6&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|581301&outFormat=json&key=" + key;
 
     fetch(apiURL)
         .then(function (response) {
             if (response.ok) {
-                console.log(response);
-                response.json().then(function (data) {
-                    console.log(data)
-                    displayBars(data);
-                });
-            } else {
-                alert("Error: " + response.statusText);
-            }
-        })
-
+            console.log(response);
+            response.json().then(function(data) {
+            console.log(data);
+            displayBars(data);
+        });
+    }
+    });
 };
 
-var displayBars = function () {
-    var mapEl = document.getElementById('map');
+           
+var displayBars = function (bars) {
 
-    var name = document.createElement('p');
-    name.textContent(response.searchResults.fields.name);
+    for (var i = 0; i < bars.length; i++) {
+        var barName = searchResults.bars[i].fields.name;
+        var barLocation = searchResults.bars[i].fields.address;
+        var barPhoneNum = searchResults.bars[i].fields.phone;
 
-    var location = document.createElement('p');
-    location.textContent(response.searchResults.fields.address);
+        var barNameEl = document.createElement('p');
+        barNameEl.textContent = barName;
 
-    var phoneNum = document.createElement('p');
-    phoneNum.textContent(response.searchResults.fields.phone);
+        var barLocationEl = document.createElement('p');
+        barLocationEl.textContent = barLocation;
 
-    mapEl.appendChild(name);
-    mapEl.appendChild(location);
-    mapEl.appendChild(phoneNum);
+        var barPhoneNumEl = document.createElement('p');
+        barPhoneNumEl.textContent = barPhoneNum;
 
-    
+        var barInfo = document.createElement('div');
+        barInfo.appendChild(barNameEl);
+        barInfo.appendChild(barLocationEl);
+        barInfo.appendChild(barPhoneNumEl);
+
+        barResultsEl.appendChild(barInfo);
+
+    }
 };
 
-searchformEl.addEventListener("submit", handleLocationFormSubmit);
+
+
+searchFoodEl.addEventListener("submit", handleLocationFormSubmit);
 
