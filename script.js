@@ -31,6 +31,9 @@ var getLocalBar = function (location, radius) {
             response.json().then(function(data) {
             console.log(data);
             displayBars(data);
+        })
+        .catch(function (error) {
+            alert("Not a valid location or radius");
         });
     }
     });
