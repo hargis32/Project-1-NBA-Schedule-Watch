@@ -11,7 +11,7 @@ const nbaGames = async function(event) {
     var gamesForDate = getGamesInDate(userDate, gamesArray);
     console.log("TODAY'S GAMES:", gamesForDate);
 
-    await gamesForDate.forEach(game => {
+    gamesForDate.forEach(game => {
         gamesEl.innerHTML += game.homeTeam.teamName;
         gamesEl.innerHTML += ' vs '
         gamesEl.innerHTML += game.awayTeam.teamName;
