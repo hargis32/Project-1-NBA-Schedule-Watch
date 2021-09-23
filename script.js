@@ -15,6 +15,7 @@ function handleLocationFormSubmit(event) {
         getLocalBar(location, radius);
         // clears out previous search results when performing new search
         barResultsEl.textContent = "";
+        // clears input fields when performing new search
         locationInputEl.value = "";
         radiusInputEl.value = "";
     };
@@ -44,7 +45,8 @@ var displayBars = function (data) {
     for (var i = 0; i < resultsArr.length; i++) {
         var barName = resultsArr[i].fields.name;
         var barLocation = resultsArr[i].fields.address;
-        var barPhoneNum = resultsArr[i].fields.phone;
+        // format phone number for normal appearance
+        var barPhoneNum = resultsArr[i].fields.phone.substring(5,14) + "-" + resultsArr[i].fields.phone.substring(14,18);
 
         var barNameEl = document.createElement('p');
         barNameEl.textContent = "Name: " + barName;
