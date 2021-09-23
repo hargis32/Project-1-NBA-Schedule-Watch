@@ -32,12 +32,16 @@ var getLocalBar = function (location, radius) {
 };
 
            
-var displayBars = function (bars) {
+var displayBars = function (data) {
 
-    for (var i = 0; i < bars.length; i++) {
-        var barName = searchResults.bars[i].fields.name;
-        var barLocation = searchResults.bars[i].fields.address;
-        var barPhoneNum = searchResults.bars[i].fields.phone;
+    // grab search results from returned data and put into its own var
+    var resultsArr = data.searchResults;
+    //
+    
+    for (var i = 0; i < resultsArr.length; i++) {
+        var barName = resultsArr[i].fields.name;
+        var barLocation = resultsArr[i].fields.address;
+        var barPhoneNum = resultsArr[i].fields.phone;
 
         var barNameEl = document.createElement('p');
         barNameEl.textContent = barName;
