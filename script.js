@@ -7,16 +7,20 @@ var radiusInputEl = document.querySelector('#radius-input');
 function handleLocationFormSubmit(event) {
     event.preventDefault();
 
-    // link id to zipcode/address input
+    
     var location = locationInputEl.value.trim();
-    // link id to #-mile-radius input, if we so choose....
+    
     var radius = radiusInputEl.value.trim();
    
         getLocalBar(location, radius);
+        // clears out previous search results when performing new search
+        barResultsEl.textContent = "";
+        locationInputEl.value = "";
+        radiusInputEl.value = "";
     };
 
 var getLocalBar = function (location, radius) {
-    // need to double check endpoints and paramaters. 581301 refers to code for "Bars" as default restaurant type 
+    
     var apiURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + location +"&radius=" + radius + "&maxMatches=6&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|581301&outFormat=json&key=" + key;
 
     fetch(apiURL)
@@ -34,9 +38,8 @@ var getLocalBar = function (location, radius) {
            
 var displayBars = function (data) {
 
-    // grab search results from returned data and put into its own var
+   
     var resultsArr = data.searchResults;
-    //
     
     for (var i = 0; i < resultsArr.length; i++) {
         var barName = resultsArr[i].fields.name;
@@ -44,13 +47,13 @@ var displayBars = function (data) {
         var barPhoneNum = resultsArr[i].fields.phone;
 
         var barNameEl = document.createElement('p');
-        barNameEl.textContent = barName;
+        barNameEl.textContent = "Name: " + barName;
 
         var barLocationEl = document.createElement('p');
-        barLocationEl.textContent = barLocation;
+        barLocationEl.textContent = "Address: " + barLocation;
 
         var barPhoneNumEl = document.createElement('p');
-        barPhoneNumEl.textContent = barPhoneNum;
+        barPhoneNumEl.textContent = "Phone Number: " + barPhoneNum;
 
         var barInfo = document.createElement('div');
         barInfo.appendChild(barNameEl);
