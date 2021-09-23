@@ -85,11 +85,11 @@
     <section id="findgames" class="section section-search blue z-depth-5 darken-1 white-text center scrollspy">
         <div class="container">
             <div class="row">
-                <form class="col s12">
+                <form id="form-games" class="col s12">
                     <h2>Find Games</h2>
                     <div class="input-field">
                         <input type="text" id="search-games" class="white grey-text" placeholder= "Search game by date format YYYY-MM-DD">
-                        <div class="search-games">
+                        <div class="search-games"></div>
                     </div>
                     <button type="submit" class="btn-large red z-depth-3 waves-effect waves-teal pulse">Find Games</button>
                 </form>
@@ -156,24 +156,24 @@
     
       <!--JavaScript at end of body for optimized loading-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script scr="script.js"></script>
+    <script src="script.js"></script>
      <script>
-      // Sidenav
-    const sideNav = document.querySelector('.sidenav');
-    M.Sidenav.init(sideNav, {});
+        // Sidenav
+        const sideNav = document.querySelector('.sidenav');
+        M.Sidenav.init(sideNav, {});
 
-      // Slider carousel
-    const slider = document.querySelector('.slider');
-    M.Slider.init(slider, {
-    indicators: false,
-    height: 1000,
-    transition: 400,
-    interval: 5000
-    });
+        // Slider carousel
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 1000,
+            transition: 400,
+            interval: 5000
+        });
 
-      // Scrollspy code
-    const scrollspy = document.querySelectorAll('.scrollspy');
-    M.ScrollSpy.init(scrollspy, {});
+        // Scrollspy code
+        const scrollspy = document.querySelectorAll('.scrollspy');
+        M.ScrollSpy.init(scrollspy, {});
        
      </script>
     </body>
