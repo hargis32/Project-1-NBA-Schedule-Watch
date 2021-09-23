@@ -1,44 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1</title>
-    <link rel="stylesheet" href="style.css" />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 1 NBA Schedule Watch</title>
 </head>
-<header>
-    <nav>
-        <img src="assets/nbalogo.png" class="logo" alt="nbalogo">
-        <a href="#" class="title">NBA Schedule Watch</a>
-        <ul>
-            <li><a href="#">Place Holder</a></li>
-            <li><a href="#">Place Holder</a></li>
-            <li><a href="#">Place Holder</a></li>
-        </ul>
-        <img src="assets/foodie.png" class="food" alt="foodlogo">
-    </nav>
-</header>
 
-<body>
-    <div id="container">
-
-        <div class="left">
-            <img src="assets/bball1.png" class="court" alt="bball1" style="width:100%" />
-            <a href="#" class="livestream"><img src="assets/clickhere.png" class="click-here" style="width:25%" /></a>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/r-uSWAJd9GE?start=66"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen autoplay></iframe>
-        </div>
-
-        <div class="right">
-            <img src="assets/sportsbar2.png" class="sportsbar" alt="sportsBar" style="width:100%" />
-            <input type="text" name="box" placeholder=" Search for food and drinks...">
-        </div>
+<body id="find" class="scrollspy">
+    <!--Navbar Section-->
+    <div class="navbar fixed">
+        <nav class="blue">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="group-logo">NBA Schedule Watch</a>
+                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="#findgames">Find Games</a>
+                        </li>
+                        <li>
+                            <a href="#searchform">Search Food and Drinks</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-    <script src="script.js"></script>
+    <ul class="sidenav" id="mobile-nav">
+        <li>
+            <a href="#findgames">Find Games</a>
+        </li>
+        <li>
+            <a href="#searchform">Search Food and Drinks</a>
+        </li>
+    </ul>
+
+    <!--Section for slider-->
+    <section class="slider">
+        <div class="slider">
+            <ul class="slides">
+                <li>
+                    <img src="assets/sportsbar.png"> <!-- random image -->
+                    <div class="caption center-align">
+                        <h1>Find Local Food and Drinks In Your Area</h1>
+                        <h3 class="green-yellow-text text-lighten-3">Use the search bar to find local restaurants and
+                            bars in your area</h3>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/nbapic.png"> <!-- random image -->
+                    <div class="caption left-align">
+                        <h1>Find NBA Games Playing When You Want</h1>
+                        <h3 class="white-text text-lighten-3">We have lists of games playing for any date you are
+                            looking for</h3>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/sportsbar2.png"> <!-- random image -->
+                    <div class="caption right-align">
+                        <h1>Looking For Any Place In Particular?</h1>
+                        <h3 class="white-text text-lighten-3">Let us help you make your next gameday experience the best
+                        </h3>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/cheers.png"> <!-- random image -->
+                    <div class="caption center-align">
+                        <h1>Click, Search, and Enjoy The Game!</h1>
+                        <h3 class="green-yellow-text text-lighten-3">We make it easy to find games and places to meet
+                            all your friends</h3>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- This section is for the find games search bar-->
+    <section id="findgames" class="section section-search blue z-depth-5 darken-1 white-text center scrollspy">
+        <div class="container">
+            <div class="row">
+                <form class="col s12" id="games">
+                    <h2>Find Games</h2>
+                    <div class="input-field">
+                        <input type="text" id="search-games" class="white grey-text"
+                            placeholder="Search game by date format YYYY-MM-DD">
+                        <button type="submit" id="search-bar"
+                            class="btn-large red z-depth-3 waves-effect waves-teal pulse">Find
+                            Games</button>
+                </form>
+            </div>
+            <div id="display-games"></div>
+        </div>
+    </section>
+
+
+    <section class="section section gif teal z-depth-5 darken-2 center">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/r-uSWAJd9GE?start=62&end=120"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe><!-- funny youtube clip-->
+            </div>
+        </div>
+    </section>
+
+    <!-- This section is for the search food and drinks-->
+    <section id="searchform" class="section section-search red z-depth-5 darken-1 white-text center scrollspy">
+        <div class="container">
+            <div class="row">
+                <form class="col s12">
+                    <h2>Search Food and Drinks</h2>
+                    <div class="col s12"></div>
+                    <div class="input-field">
+                        <input type="text" id="location-input" class="white grey-text"
+                            placeholder="Please Input Your City or Zipcode">
+                        <div class="input-field">
+                            <input type="text" id="radius-input" class="white grey-text"
+                                placeholder="Please Select Mileage Radius">
+                        </div>
+                        <button type="submit" class="btn-large blue z-depth-3 waves-effect waves-teal pulse">Find
+                            Places</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+        </div>
+    </section>
+
+    <section class="section section gif teal z-depth-5 darken-2 center">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <img src="assets/yayy.gif"> <!-- funny image gif-->
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section section gif teal z-depth-5 darken-2 center">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <img src="assets/wow.gif"> <!-- funny image gif-->
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer Section-->
+
+    <footer class="section blue z-depth-5 darken-3 white-text center">
+        <p class="flow-text">NBA Schedule Watch &copy; 2021 </p>
+        <p class="flow-text">Team BAPT </p>
+        <p class="flow-text">Brandon Austin Perry Talhah</p>
+    </footer>
+
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="Games.js"></script>
+
+    <script>
+        // Sidenav
+        const sideNav = document.querySelector('.sidenav');
+        M.Sidenav.init(sideNav, {});
+
+        // Slider carousel
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 1000,
+            transition: 400,
+            interval: 5000
+        });
+
+        // Scrollspy code
+        const scrollspy = document.querySelectorAll('.scrollspy');
+        M.ScrollSpy.init(scrollspy, {});
+    </script>
 </body>
 
 </html>
