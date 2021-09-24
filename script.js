@@ -105,4 +105,4 @@ function getGamesInDate(date, games) {
     });
 }
 
-document.getElementById("games").addEventListener("submit", nbaGames)
+document.getElementById("games").addEventListener("submit", nbaGames);

@@ -88,7 +88,7 @@
                 <form class="col s12" id="games">
                     <h2>Find Games</h2>
                     <div class="input-field">
-                        <input type="text" id="search-games" class="white grey-text" placeholder= "Search game by date format YYYY-MM-DD">
+                        <input type="text" id="search-games" class="datepicker white grey-text " placeholder= "Search game by date format YYYY-MM-DD">
                         <div class="search-games">
                     </div>
                     <button type="submit" class="btn-large red z-depth-3 waves-effect waves-teal pulse">Find Games</button>
@@ -176,6 +176,12 @@
     
       <!--JavaScript at end of body for optimized loading-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        const Calendar = document.querySelector('.datepicker');
+        M.Datepicker.init(Calendar,{
+            format: 'yyyy-mm-dd'
+        });
+    </script>
     <script src="script.js"></script>
      <script>
       // Sidenav
