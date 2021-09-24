@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box !important;
+}
+
 .section-search input {
   padding: 5px !important;
   font-size: 20px !important;
@@ -15,6 +19,16 @@ h1 {
   color: greenyellow !important;
 }
 
+
+#display-games {
+  padding-inline-start: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  grid-gap: 20px !important;
+  border-radius: 40px !important;
+}
+
+
 #bar-results {
   padding-inline-start: 0 !important;
   display: grid !important;
@@ -22,6 +36,8 @@ h1 {
   grid-gap: 20px !important;
   border-radius: 40px !important;
 }
+
+
 
 .modal-content {
   color: black !important;
