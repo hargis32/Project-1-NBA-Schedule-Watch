@@ -121,12 +121,12 @@
                             </div>
                             <button type="submit" class="btn-large blue z-depth-3 waves-effect waves-teal pulse">Find Places</button>
                         </div>
-                    </div>    
+                    </div>
                 </form>
             </div>
-            <div class="col s12" id="bar-results"></div>
+            <div id="bar-results" class="blue white-text s6 m6 l3"></div>
+            </div>
         </div>
-        
     </section>
 
     <section class="section section gif teal z-depth-5 darken-2 center">
@@ -152,7 +152,8 @@
 
     <footer class="section blue z-depth-5 darken-3 white-text center">
         <p class="flow-text">NBA Schedule Watch &copy; 2021 </p>
-         <!-- Modal Trigger -->
+             
+        <!-- Modal Trigger -->
     <a class="orange waves-effect waves-light btn-large modal-trigger" href="#modal">Team BAPT</a>
 
         <!-- Modal Structure -->
@@ -168,6 +169,8 @@
                 <button data-target="modal" class="modal-close waves-effect waves-light btn-small">Close</button>
             </div>
         </div> 
+
+
     </footer>
 
     
@@ -188,12 +191,18 @@
     interval: 5000
     });
 
-      // Scrollspy code
+    
+    // Scrollspy code
     const scrollspy = document.querySelectorAll('.scrollspy');
     M.ScrollSpy.init(scrollspy, {});
+
+      // Modal code
+    const modal = document.querySelector('.modal');
+    M.Modal.init(modal, {});
        
-     </script>
+    </script>
     </body>
 
   </html>
+
   
