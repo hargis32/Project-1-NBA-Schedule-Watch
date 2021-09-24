@@ -93,7 +93,7 @@ const nbaGames = async function(event) {
         gamesEl.innerHTML += ' vs '
         gamesEl.innerHTML += game.awayTeam.teamName;
         gamesEl.innerHTML += ' '
-        gamesEl.innerHTML += game.gameDateTimeEst;
+        gamesEl.innerHTML += game.gameStatusText;
         gamesEl.innerHTML += '<br>'
     });
 }
