@@ -44,6 +44,7 @@ var displayBars = function (data) {
 
    
     var resultsArr = data.searchResults;
+    var savedBars = [];
     
     for (var i = 0; i < resultsArr.length; i++) {
         var barName = resultsArr[i].fields.name;
@@ -67,13 +68,40 @@ var displayBars = function (data) {
 
         barResultsEl.appendChild(barInfo);
 
-        localStorage.setItem("barName"+[i],JSON.stringify(barName));
-        localStorage.setItem("barLocation"+[i],JSON.stringify(barLocation));
-        localStorage.setItem("barPhoneNum"+ [i],JSON.stringify(barPhoneNum));
+        var Bar = {
+            name: barName,
+            location: barLocation,
+            phone: barPhoneNum,
+        };
+        savedBars.push(Bar);
+
+        
 
     }
+    localStorage.setItem("storedBars",JSON.stringify(savedBars));
 };
 
+function init() {
+    var retrieveBars = JSON.parse(localStorage.getItem("storedBars"));
+    for (var i = 0; i < retrieveBars.length; i++) {
+        if (retrieveBars[i] !== null) {
+            var barName = retrieveBars[i].name;
+            var barLocation = retrieveBars[i].location;
+            var barPhoneNum = retrieveBars[i].phone;
+            var barNameEl = document.createElement('p');
+            barNameEl.textContent = "Name: " + barName;
+            var barLocationEl = document.createElement('p');
+            barLocationEl.textContent = "Address: " + barLocation;
+            var barPhoneNumEl = document.createElement('p');
+            barPhoneNumEl.textContent = "Phone Number: " + barPhoneNum;
+            var barInfo = document.createElement('div');
+            barInfo.appendChild(barNameEl);
+            barInfo.appendChild(barLocationEl);
+            barInfo.appendChild(barPhoneNumEl);
+            barResultsEl.appendChild(barInfo);  
+        }
+    }
+};
 
 
 searchFoodEl.addEventListener("submit", handleLocationFormSubmit);
@@ -110,3 +138,5 @@ function getGamesInDate(date, games) {
 }
 
 document.getElementById("games").addEventListener("submit", nbaGames);
+
+init();
