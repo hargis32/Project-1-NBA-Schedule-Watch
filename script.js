@@ -67,6 +67,10 @@ var displayBars = function (data) {
 
         barResultsEl.appendChild(barInfo);
 
+        localStorage.setItem("barName"+[i],JSON.stringify(barName));
+        localStorage.setItem("barLocation"+[i],JSON.stringify(barLocation));
+        localStorage.setItem("barPhoneNum"+ [i],JSON.stringify(barPhoneNum));
+
     }
 };
 
